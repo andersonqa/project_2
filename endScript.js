@@ -1,6 +1,9 @@
 const generateButton = document.querySelector('button')
+const refreshButton = document.querySelector('#Refresh')
 const adviceSpot = document.querySelector('p')
 const imageDiv = document.querySelector('div')
+
+// on click, the person's image appears in the div and the advice appears in the 'p'
 
 generateButton.addEventListener('click', async () => {
     imageDiv.innerHTML = `<img src = https://thispersondoesnotexist.com/image?' width =\'500px\' height =\'500\'>`
@@ -8,10 +11,13 @@ generateButton.addEventListener('click', async () => {
     console.log(response.data.slip.advice)
     let adviceLine = response.data.slip.advice
     adviceSpot.innerHTML = `${adviceLine}`
-    let imgResponse = await axios.get(`https://thispersondoesnotexist.com/image?`)
-    console.log(imgResponse)
-    // imageDiv.innerHTML = `<img src = https://thispersondoesnotexist.com/image?' width =\'500px\' height =\'500\'>`
+
+})
+refreshButton.addEventListener('click',() =>{
+    location.reload()
+    imageDiv.innerHTML =`<img src = https://thispersondoesnotexist.com/image? width =\'500px\' height =\'500\'>`
 })
 
-//was in line 12:
-// let person = imgResponse.data
+
+
+// Element.setAttribute(img, src = https://thispersondoesnotexist.com/image?);
